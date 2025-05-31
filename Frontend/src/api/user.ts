@@ -82,7 +82,7 @@ const getInfoUser = async (id: number) => {
 
 const getAllInfoUser = async () => {
     try {
-        const response = await Axios.get(`/users/`);
+        const response = await Axios.get(`/users`);
         return {
             success: true,
             data: response.data
