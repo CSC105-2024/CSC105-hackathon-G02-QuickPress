@@ -1,6 +1,6 @@
 import { db } from "../index.ts";
 
-const createGame = async (day: string, month: string, year: string, score: number, combo: number, userId: number) => {
+const createGame = async (day: number, month: number, year: number, score: number, combo: number, userId: number) => {
     const game = await db.game.create({
         data: {
             day: day,
