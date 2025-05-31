@@ -5,12 +5,10 @@ import "./index.css";
 import App from "./App.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import './index.css'
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+// Import pages
+import RegisterPage from "./pages/RegisterPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import GamePlayPage from "./pages/GamePlayPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +16,17 @@ const router = createBrowserRouter([
     element: <App />, // Render the App component
   },
   {
+    path: "/register",
+    element: <RegisterPage/>
+  },
+  {
+    path: "/login",
+    element: <LoginPage/>
+  },
+  {
+    path: "/gameplay",
+    element: <GamePlayPage/>
+  },
     path: "/profile", // Main page route
     element: <ProfilePage />, // Render the App component
   }
@@ -25,6 +34,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} /> {/* Provide the router to the app */}
   </StrictMode>,
-);
+)
