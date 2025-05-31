@@ -68,7 +68,7 @@ export default function ProfilePage() {
         <div className='flex gap-20 lg:gap-90'>
 
             <button className='
-                text-[16px] lg:text-[36px] font-bold 
+                text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
@@ -76,7 +76,7 @@ export default function ProfilePage() {
                 cursor-pointer'>
                 Back
             </button><button className='
-                text-[16px] lg:text-[36px] font-bold 
+                text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
