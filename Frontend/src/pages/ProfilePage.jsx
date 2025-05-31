@@ -1,6 +1,7 @@
 
 import React from 'react';
 import GifBG from '../images/NeonPinkGrid.gif';
+import BGsong from '../components/BGsong.jsx';
 
 export default function ProfilePage() {
   return (
