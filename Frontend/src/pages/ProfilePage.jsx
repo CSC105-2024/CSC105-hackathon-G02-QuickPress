@@ -10,7 +10,7 @@ export default function ProfilePage() {
         backgroundImage: `url(${GifBG})`,
       }}
     >
-        <div className='flex flex-col items-center justify-center w-[360px] h-[600px] lg:w-[1000px] lg:h-[800px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10'>
+        <div className='flex flex-col items-center justify-center w-[360px] h-[600px] lg:w-[800px] lg:h-[600px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10'>
             <div className='flex flex-row justify-between items-between w-full'>
                 <h1 className='flex ml-2 mt-2 text-[20px] lg:text-[30px] font-bold'>
                     Username
@@ -20,19 +20,19 @@ export default function ProfilePage() {
                 </button>
             </div>
 
-        <div className='flex flex-col w-[320px] h-full lg:w-[880px] bg-black mt-3 lg:mt-10 mb-2 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
+        <div className='flex flex-col w-[320px] h-full lg:w-[750px] bg-black mt-3 lg:mt-10 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
             <div>
-                <h2 className='text-[20px] lg:text-[36px] font-bold underline text-center mb-3'>History</h2>
+                <h2 className='text-[20px] lg:text-[30px] font-bold underline text-center mb-3'>History</h2>
                 <table className="table-auto w-full text-center border-separate border-spacing-0">
                     <thead>
-                        <tr className="text-[12px] lg:text-[24px]">
+                        <tr className="text-[12px] lg:text-[20px]">
                             <th className="border-b border-r border-white px-4 py-2">Date</th>
                             <th className="border-b border-r border-white px-4 py-2">Highest combo</th>
                             <th className="border-b border-white lg:px-4 py-2">Score</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='text-[12px] lg:text-[18px]'>
+                        <tr className='text-[12px] lg:text-[20px]'>
                             <td className="border-r border-white px-4 py-2">30/05/2005</td>
                             <td className="border-r border-white px-4 py-2">18</td>
                             <td className="px-4 py-2">100</td>
@@ -68,7 +68,7 @@ export default function ProfilePage() {
         <div className='flex gap-20 lg:gap-90'>
 
             <button className='
-                text-[16px] lg:text-[24px] font-bold 
+                text-[16px] lg:text-[36px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
@@ -76,7 +76,7 @@ export default function ProfilePage() {
                 cursor-pointer'>
                 Back
             </button><button className='
-                text-[16px] lg:text-[24px] font-bold 
+                text-[16px] lg:text-[36px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
