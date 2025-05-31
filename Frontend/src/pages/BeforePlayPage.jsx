@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import { React , useState , useEffect } from 'react'
 import { NavLink } from "react-router-dom";
-import GifBG from '../images/NeonPinkGrid.gif'; // Adjust the filename to match what you renamed it to
+import GifBG from '../images/NeonPinkGrid.gif';
 import * as apiUser from "../api/user"
 
 const BeforePlayPage = () => {
-
+    useEffect(() => {
+      document.title = "QuickPress - Home"; // 🔧 Set dynamic title
+    }, []);
   const [score, setScore] = useState();
   const [combo, setCombo] = useState();
 
