@@ -27,6 +27,7 @@ const router = createBrowserRouter([
     path: "/gameplay",
     element: <GamePlayPage/>
   },
+  {
     path: "/profile", // Main page route
     element: <ProfilePage />, // Render the App component
   }
