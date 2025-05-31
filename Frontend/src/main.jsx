@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"; //import these modules
 import "./index.css";
 import App from "./App.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 import './index.css'
 // Import pages
 import RegisterPage from "./pages/RegisterPage.jsx";
@@ -25,6 +26,9 @@ const router = createBrowserRouter([
   {
     path: "/gameplay",
     element: <GamePlayPage/>
+  },
+    path: "/profile", // Main page route
+    element: <ProfilePage />, // Render the App component
   }
 ]);
 
