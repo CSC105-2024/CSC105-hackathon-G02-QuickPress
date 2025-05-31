@@ -4,7 +4,7 @@ import GifBG from '../images/NeonPinkGrid.gif';
 export default function ProfilePage() {
   return (
     <div
-      className="w-full min-h-screen bg-cover bg-center text-white flex flex-col gap-8 lg:gap-15 items-center justify-center"
+      className="w-full min-h-screen bg-cover bg-center text-white flex flex-col gap-8 lg:gap-5 items-center justify-center"
       style={{
         backgroundImage: `url(${GifBG})`,
       }}
