@@ -45,7 +45,7 @@ const deleteGame = async (c: Context) => {
 
 const getAllGame = async (c: Context) => {
     try {
-        const { userId } = await c.req.json();
+        const userId = Number(c.req.param("userId"));
         const game = await gameModel.getAllGame(userId);
         return c.json({
             success: true,
