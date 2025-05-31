@@ -1,10 +1,40 @@
 
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 import GifBG from '../images/NeonPinkGrid.gif';
 import { useNavigate } from 'react-router-dom';
+import * as apiUser from "../api/user";
 
 export default function TopScorePage() {
 const navigate = useNavigate();
+
+    const userAccount = parseInt(localStorage.getItem("userAccount"));
+
+    const [players, setPlayers] = useState([]);
+
+    // Backend => API getAllInfoUser
+    const getAllInfoUser = async (id) => {
+        const data = await apiUser.getAllInfoUser(id);
+        if (data.data.success) {
+            setPlayers(data.data.data);
+        }
+    }
+
+    useEffect(() => {
+        getAllInfoUser(userAccount);
+    }, [])
+
+    const [topPlayers, setTopPlayers] = useState([]);
+
+    useEffect(() => {
+    if (players.length > 0) {
+        const sortedPlayers = [...players]
+        .sort((a, b) => b.highestScore - a.highestScore)
+        .slice(0, 5);
+        setTopPlayers(sortedPlayers);
+        console.log(sortedPlayers);
+        
+    }
+    }, [players]);
   return (
     <div
       className="w-full min-h-screen bg-cover bg-center text-white flex flex-col lg:gap-5 items-center justify-center"
@@ -22,41 +52,15 @@ const navigate = useNavigate();
                         <th className="border-b-3 border-l-2 border-white lg:px-4 py-2">Score</th>
                     </tr>
                 </thead>
+                {topPlayers.map((player, index) => (
                 <tbody>
                     <tr className='text-[12px] lg:text-[30px]'>
-                        <td className="border-r-2 border-t border-white px-4 py-2">1</td>
-                        <td className="border-r-2 border-t border-l-2 border-white px-4 py-2">Get</td>
-                        <td className="border-t border-l-2 px-4 py-2">20000</td>
+                        <td className="border-r-2 border-t border-white px-4 py-2">{index + 1}</td>
+                        <td className="border-r-2 border-t border-l-2 border-white px-4 py-2">{player.username}</td>
+                        <td className="border-t border-l-2 px-4 py-2">{player.highestScore}</td>
                     </tr>
                 </tbody>
-                <tbody>
-                    <tr className='text-[12px] lg:text-[30px]'>
-                        <td className="border-r-2 border-t border-white px-4 py-2">2</td>
-                        <td className="border-r-2 border-t border-l-2 border-white px-4 py-2">Korn</td>
-                        <td className="border-t border-l-2 px-4 py-2">100</td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr className='text-[12px] lg:text-[30px]'>
-                        <td className="border-r-2 border-t border-white px-4 py-2">3</td>
-                        <td className="border-r-2 border-t border-l-2 border-white px-4 py-2">Korn</td>
-                        <td className="border-t border-l-2 px-4 py-2">100</td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr className='text-[12px] lg:text-[30px]'>
-                        <td className="border-r-2 border-t border-white px-4 py-2">4</td>
-                        <td className="border-r-2 border-t border-l-2 border-white px-4 py-2">Korn</td>
-                        <td className="border-t border-l-2 px-4 py-2">100</td>
-                    </tr>
-                </tbody>
-                <tbody>
-                    <tr className='text-[12px] lg:text-[30px]'>
-                        <td className="border-r-2 border-t border-white px-4 py-2">5</td>
-                        <td className="border-r-2 border-t border-l-2 border-white px-4 py-2">Korn</td>
-                        <td className="border-t border-l-2 px-4 py-2">100</td>
-                    </tr>
-                </tbody>
+                ))}
             </table>
         </div>
 

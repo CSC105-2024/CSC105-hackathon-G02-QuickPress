@@ -1,7 +1,65 @@
-import { React, useState} from 'react'
+import { React, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
+// API
+import * as apiGame from '../api/game'
+import * as apiUser from '../api/user'
 
 const ResultModal = ({score, highestCombo}) => {
+
+      const [scorePlayer, setScorePlayer] = useState();
+      const [comboPlayer, setComboPlayer] = useState();
+
+      const [scoreGame, setScoreGame] = useState();
+      const [comboGame, setComboGame] = useState();
+    
+      const userAccount = parseInt(localStorage.getItem("userAccount"));
+    
+      // Backend => API getInfoUser
+      const getInfoUser = async (id) => {
+        const data = await apiUser.getInfoUser(id);
+        if (data.data.success) {
+          setScorePlayer(data.data.data.highestScore);
+          setComboPlayer(data.data.data.highestCombo);
+        }
+      }
+
+      useEffect(() => {
+      if (scoreGame > scorePlayer) {
+        editScore(userAccount, scoreGame);
+      }
+    },[scoreGame])
+
+    useEffect(() => {
+      if (comboGame > comboPlayer) {
+        editCombo(userAccount, comboGame);
+      }
+    },[comboGame])
+    
+    // Backend => API editScore
+    const editScore = async (id, score) => {
+      await apiUser.editScore(id, score)
+    }
+
+    // Backend => API editCombo
+    const editCombo = async (id, combo) => {
+      await apiUser.editCombo(id, combo)
+    }
+
+    // Backend => API createGame
+    const createGame = async (day, month, year, score, highestCombo, userId) => {
+      const data = await apiGame.createGame(day, month, year, score, highestCombo, userId);
+      if (data.data.success) {
+        setScoreGame(data.data.data.score);
+        setComboGame(data.data.data.combo);
+      }
+    }
+
+    useEffect(() => {
+      const date = new Date();
+      createGame(date.getDate(), date.getMonth() + 1, date.getFullYear(), score, highestCombo, userAccount)
+      getInfoUser(userAccount);
+    },[])
+
     const navigate = useNavigate()
   return (
     <>

@@ -154,4 +154,52 @@ const editUsername = async (c: Context) => {
 	}
 }
 
-export { createUser, getInfoUser, loginUser, getAllInfoUser, editUsername,getMe,logOut }
+const editScore = async (c: Context) => {
+	try {
+		const id = Number(c.req.param("id"));
+		const { highestScore } = await c.req.json();
+		const user = await userModel.editScore(id, highestScore);
+        return c.json(
+            {
+                success: true,
+                data: user,
+				msg: `Your score have changed`
+            }
+        );
+	} catch (e) {
+		return c.json(
+			{
+				success: false,
+				data: null,
+				msg: `${e}`,
+			},
+			500
+		);
+	}
+}
+
+const editCombo = async (c: Context) => {
+	try {
+		const id = Number(c.req.param("id"));
+		const { highestCombo } = await c.req.json();
+		const user = await userModel.editCombo(id, highestCombo);
+        return c.json(
+            {
+                success: true,
+                data: user,
+				msg: `Your combo have changed`
+            }
+        );
+	} catch (e) {
+		return c.json(
+			{
+				success: false,
+				data: null,
+				msg: `${e}`,
+			},
+			500
+		);
+	}
+}
+
+export { createUser, getInfoUser, loginUser, getAllInfoUser, editUsername,getMe,logOut, editScore, editCombo }

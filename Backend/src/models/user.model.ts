@@ -58,4 +58,28 @@ const editUsername = async ( id: number, username: string) => {
     return user;
 }
 
-export { isDuplicate, createUser, getInfoUser, loginUser, getAllInfoUser, editUsername }
+const editScore = async (id: number, highestScore: number) => {
+    const user = await db.user.update({
+        where: {
+            id: id
+        },
+        data: {
+            highestScore: highestScore,
+        }
+    })
+    return user;
+}
+
+const editCombo = async (id: number, highestCombo: number) => {
+    const user = await db.user.update({
+        where: {
+            id: id
+        },
+        data: {
+            highestCombo: highestCombo
+        }
+    })
+    return user;
+}
+
+export { isDuplicate, createUser, getInfoUser, loginUser, getAllInfoUser, editUsername, editScore, editCombo }
