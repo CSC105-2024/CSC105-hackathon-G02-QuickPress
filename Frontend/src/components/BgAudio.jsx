@@ -1,7 +1,7 @@
 // src/components/BgAudio.jsx
 import React, { useRef, useState, useEffect } from "react";
 import song from "../assets/PlayingBG.mp3";
-import { Play, Pause } from "lucide-react"; // ⬅️ Import icons
+import { Volume, VolumeX } from "lucide-react"; // ✅ Use speaker icons
 
 export default function BgAudio() {
   const audioRef = useRef(null);
@@ -10,6 +10,7 @@ export default function BgAudio() {
   useEffect(() => {
     const handleUserInteraction = () => {
       if (audioRef.current) {
+        audioRef.current.volume = 0.1;
         audioRef.current.play()
           .then(() => setIsPlaying(true))
           .catch(err => console.warn("Autoplay failed:", err.message));
@@ -40,10 +41,10 @@ export default function BgAudio() {
       <audio ref={audioRef} src={song} loop />
       <button
         onClick={toggleAudio}
-        aria-label={isPlaying ? "Pause background music" : "Play background music"}
-        className="fixed top-4 right-4 p-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition"
+        aria-label={isPlaying ? "Mute background music" : "Unmute background music"}
+        className="fixed bottom-4 right-4 p-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition"
       >
-        {isPlaying ? <Pause size={24} /> : <Play size={24} />}
+        {isPlaying ? <Volume size={24} /> : <VolumeX size={24} />}
       </button>
     </>
   );
