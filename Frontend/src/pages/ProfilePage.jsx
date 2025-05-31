@@ -72,7 +72,6 @@ export default function ProfilePage() {
     };
 
     const navigate = new useNavigate();
-
   return (
     <div
       className="w-full min-h-screen bg-cover bg-center text-white flex flex-col gap-8 lg:gap-5 items-center justify-center"
@@ -160,8 +159,7 @@ export default function ProfilePage() {
         </div>
 
         <div className='flex gap-20 lg:gap-90'>
-
-            <button onClick={() => navigate("/home")} className='
+            <button onClick={() =>{navigate("/home")}} className='
                 text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
@@ -169,6 +167,14 @@ export default function ProfilePage() {
                 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
                 cursor-pointer'>
                 Back
+            </button><button onClick={() =>{navigate("/")}} className='
+                text-[16px] lg:text-[32px] font-bold 
+                bg-black hover:bg-gradient-to-b 
+                from-[#FC0FC0] to-[#C154C1]
+                px-7 lg:px-15 py-3
+                rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
+                cursor-pointer'>
+                Log Out
             </button>
 
         </div>
