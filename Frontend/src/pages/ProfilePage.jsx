@@ -73,13 +73,13 @@ export default function ProfilePage() {
     const navigate = new useNavigate();
   return (
     <div
-      className="w-full min-h-screen bg-cover bg-center text-white flex flex-col gap-8 lg:gap-5 items-center justify-center"
+      className="lg:w-full h-[884px] lg:min-h-screen bg-cover bg-center text-white flex flex-col gap-8 lg:gap-5 items-center justify-center"
       style={{
-        backgroundImage: `url(${GifBG})`,
+        backgroundImage: `url(${GifBG})`, 
       }}
     >
         <div className='flex flex-col items-center justify-center w-[360px] h-[600px] lg:w-[800px] lg:h-[600px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10'>
-            <div className='flex gap-145'>
+            <div className='flex lg:gap-130 gap-30  '>
                 {!edit && <h1 className='flex text-[20px] lg:text-[30px] font-bold'>
                     {username}
                 </h1>}
@@ -97,7 +97,7 @@ export default function ProfilePage() {
                 </div>}
             </div>
 
-        <div className='flex flex-col w-[320px] h-full lg:w-[750px] bg-black mt-3 lg:mt-10 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
+        <div className='flex flex-col mb-5 w-[320px] h-full lg:w-[750px] bg-black mt-3 lg:mt-10 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
             <div>
                 <h2 className='text-[20px] lg:text-[30px] font-bold underline text-center mb-3'>History</h2>
                 <table className="table-auto w-full text-center border-separate border-spacing-0">
@@ -125,7 +125,7 @@ export default function ProfilePage() {
                 </table>
             </div>
             {/* Pagination controls */}
-            <div className="flex justify-center gap-2 mt-6">
+            <div className="flex justify-center mb-3 gap-4 lg:gap-2 mt-6 ">
                 <button
                     className="px-3 py-1 border rounded disabled:opacity-50"
                     onClick={() => goToPage(currentPage - 1)}
@@ -179,4 +179,4 @@ export default function ProfilePage() {
         </div>
     </div>
   );
-}
+} 

@@ -42,14 +42,15 @@ const navigate = useNavigate();
         backgroundImage: `url(${GifBG})`,
       }}
     >
-        <div className='flex flex-col h-150 justify-between'>
-        <div>
+        <div className='flex flex-col h-100 lg:h-150'>
+        <div >
+            <h1 className="text-5xl text-center mb-10 ">Top Score</h1>
             <table className="table-auto w-full items-center text-center border-separate border-spacing-0">
                 <thead>
                     <tr className="text-[12px] lg:text-[40px]">
-                        <th className="border-b-3 border-r-2 border-white px-4 py-2">Rank</th>
-                        <th className="border-b-3 border-r-2 border-l-2 border-white px-4 py-2">Username</th>
-                        <th className="border-b-3 border-l-2 border-white lg:px-4 py-2">Score</th>
+                        <th className="lg:border-b-3 border-r-2 border-b-2 lg:text-2xl border-white px-4 py-2">Rank</th>
+                        <th className="lg:border-b-3 border-r-2 border-b-2 lg:text-2xl border-l-2 border-white  px-4 py-2">Username</th>
+                        <th className="lg:border-b-3 border-l-2 border-b-2 lg:text-2xl border-white lg:px-4 lg:py-2">Score</th>
                     </tr>
                 </thead>
                 {topPlayers.map((player, index) => (
@@ -64,12 +65,12 @@ const navigate = useNavigate();
             </table>
         </div>
 
-        <div className='flex w-[1000px] items-start'>
+        <div className='flex w-[370px] mt-16 lg:w-[1000px] items-center justify-center'>
             <button onClick={() => {navigate("/home")}} className='
                 text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
-                px-7 lg:px-15 py-3
+                px-15 lg:px-15 py-3
                 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
                 cursor-pointer'>
                 Back
