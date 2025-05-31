@@ -1,7 +1,7 @@
 // src/components/BgAudio.jsx
 import React, { useRef, useState, useEffect } from "react";
 import song from "../assets/PlayingBG.mp3";
-import { Play, Pause } from "lucide-react"; // ⬅️ Import icons
+import { Play, Pause } from "lucide-react";
 
 export default function BgAudio() {
   const audioRef = useRef(null);
@@ -10,6 +10,7 @@ export default function BgAudio() {
   useEffect(() => {
     const handleUserInteraction = () => {
       if (audioRef.current) {
+        audioRef.current.volume = 0.1;
         audioRef.current.play()
           .then(() => setIsPlaying(true))
           .catch(err => console.warn("Autoplay failed:", err.message));
