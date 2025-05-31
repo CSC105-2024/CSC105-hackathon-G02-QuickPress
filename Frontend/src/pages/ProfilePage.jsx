@@ -64,7 +64,7 @@ export default function ProfilePage() {
 
         
 
-        <div className='flex gap-100 lg:gap-300 mb-10 max-sm:gap-20'>
+        <div className='flex gap-100 lg:gap-240 mb-10 max-sm:gap-20'>
 
             <button className='
                 text-[16px] lg:text-[24px] max-sm:w-30 w-60 font-bold 
