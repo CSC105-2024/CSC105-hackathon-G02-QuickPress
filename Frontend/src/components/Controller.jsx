@@ -1,13 +1,22 @@
 import { useEffect, useState } from 'react';
 import { sendRule } from '../pages/GamePlayPage';
+import { sendStart } from './RuleModal';
+// Icon
+import { FaArrowUp } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function ArrowSequenceGame({setRule, start}) {
 
   const [arrows, setArrows] = useState([]);
   const [arrowsDisplay, setArrowsDisplay] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [status, setStatus] = useState("Press Enter to start");
   const [score, setScore] = useState(0);
+  const [combo, setCombo] = useState(0);
+  const [highestCombo, setHighestCombo] = useState(0);
+
+  localStorage.setItem("score", score)
 
   // Set the rule of this game
   useEffect(() => {
@@ -41,19 +50,20 @@ export default function ArrowSequenceGame({setRule, start}) {
     // Random the arrows sequence
     for (let i = 0; i < (Math.floor(Math.random() * (10 - 4) ) + 4); i++) {
         const random = Math.random();
+        
         let select;
         if (random <= 0.25) {
             select = sendRule[0];
-            newArrowsDisplay.push("🢁")
+            newArrowsDisplay.push("ArrowUp")
         } else if (random <= 0.5) {
             select = sendRule[1];
-            newArrowsDisplay.push("🢃")
+            newArrowsDisplay.push("ArrowDown")
         } else if (random <= 0.75) {
             select = sendRule[2];
-            newArrowsDisplay.push("🢀")
+            newArrowsDisplay.push("ArrowLeft")
         } else {
             select = sendRule[3];
-            newArrowsDisplay.push("🢂")
+            newArrowsDisplay.push("ArrowRight")
         }
         newArrows.push(select)
     }
@@ -62,12 +72,11 @@ export default function ArrowSequenceGame({setRule, start}) {
     setArrows(newArrows);
     setArrowsDisplay(newArrowsDisplay);
     setCurrentIndex(0);
-    setStatus("Game started! Follow the sequence.");
 
     // Render again when arrows and currentIndex are changed
   }, [start]);
 
-  // Generate new arrows sequence when player's press "Enter"
+  // Generate new arrows sequence when player's press "Space"
   useEffect(() => {
 
     const handleKeyDown = async (e) => {
@@ -83,16 +92,16 @@ export default function ArrowSequenceGame({setRule, start}) {
             let select;
             if (random <= 0.25) {
                 select = sendRule[0];
-                newArrowsDisplay.push("🢁")
+                newArrowsDisplay.push("ArrowUp")
             } else if (random <= 0.5) {
                 select = sendRule[1];
-                newArrowsDisplay.push("🢃")
+                newArrowsDisplay.push("ArrowDown")
             } else if (random <= 0.75) {
                 select = sendRule[2];
-                newArrowsDisplay.push("🢀")
+                newArrowsDisplay.push("ArrowLeft")
             } else {
                 select = sendRule[3];
-                newArrowsDisplay.push("🢂")
+                newArrowsDisplay.push("ArrowRight")
             }
             newArrows.push(select)
         }
@@ -101,34 +110,33 @@ export default function ArrowSequenceGame({setRule, start}) {
         setArrows(newArrows);
         setArrowsDisplay(newArrowsDisplay);
         setCurrentIndex(0);
-        setStatus("Game started! Follow the sequence.");
+
+        const newCombo = combo + 1;
+        setCombo(newCombo);
       }
 
       // If player's press all arrows sequence correct, then it will stop to get the value key from the player's press
       if (arrows.length === 0 || currentIndex >= arrows.length) return;
-
-      console.log("arrows:", arrows);
-        console.log("currentIndex:", currentIndex);
-        console.log("expected:", arrows[currentIndex]);
-
+      
       // Check the player's press is correct or not
       const expected = arrows[currentIndex];
       if (e.key === expected) {
-        console.log(true);
-        
+
         // If all sequence is done
         if (currentIndex + 1 === arrows.length) {
-          setStatus("🎉 Success! Sequence completed.");
-          const newScore = score + 500
-          setScore(newScore)
-        } else {
-          setStatus(`✅ Correct: ${e.key}`);
+          const newScore = score + 500;
+          setScore(newScore);
         }
+
         setCurrentIndex(prev => prev + 1);
+
         // If the player's press is wrong
       } else if (e.key.startsWith("Arrow")) {
-        setStatus(`❌ Wrong key! Expected: ${expected}`);
         setCurrentIndex(0)
+        if (combo > highestCombo) {
+          setHighestCombo(combo);
+        }
+        setCombo(0);
       }
     };
 
@@ -142,23 +150,22 @@ export default function ArrowSequenceGame({setRule, start}) {
   }, [arrows, currentIndex]);
 
   return (
-    <div className="p-4 space-y-4 text-white">
-      <h2 className="text-lg font-bold">Arrow Key Sequence Game</h2>
-      <p>Status: {status}</p>
-      <div className="flex gap-2">
-        {arrowsDisplay.map((arrow, i) => (
-          <div
-            key={i}
-            className={`px-2 py-1 rounded-full text-center ${
-              i === currentIndex ? "bg-yellow-400 text-black" : "bg-gray-700"
-            }`}
-          >
-            {arrow}
+    <>
+    {(arrowsDisplay.length != 0 && start) && <div className="flex flex-col items-center mt-15">
+      <div className='flex justify-end w-100'>
+        <p className='font-semibold'>Combo: {combo}</p>
+      </div>
+      <div className="flex gap-1 bg-black/25 py-2 px-20 border-2 border-black rounded-full">
+        {arrowsDisplay.map((arrow, index) => (
+          <div key={index} className={`text-white text-[36px] ${index < currentIndex ? "bg-gradient-to-b from-[#7ed957] to-[#007e56]" : "bg-gradient-to-b from-[#38B6FF] to-[#44489A]"} p-2 rounded-full`}>
+            {arrow === "ArrowUp" && <FaArrowUp/>}
+            {arrow === "ArrowDown" && <FaArrowDown/>}
+            {arrow === "ArrowLeft" && <FaArrowLeft/>}
+            {arrow === "ArrowRight" && <FaArrowRight/>}
           </div>
         ))}
       </div>
-      <h1 className='text-black'>{score}</h1>
-      <p className="text-sm text-gray-400">Press Enter to restart</p>
-    </div>
+    </div>}
+    </>
   );
 }

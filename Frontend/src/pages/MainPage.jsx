@@ -15,12 +15,10 @@ export default function MainPage() {
           <img src={QuickPress} alt="Quick Press Logo" className="w-[1200px] h-[280px] max-sm:w-[400px] max-sm:h-[230px]" />
         </h1>
         <button
-          className="text-[48px] font-bold 
+          className="text-[30px] font-bold 
                      bg-black hover:bg-gradient-to-b 
-                     from-[#FC0FC0] to-[#C154C1]
-                     px-12 py-2 rounded-xl 
-                     border-2 border-[#FC0FC0] 
-                     shadow-[-6px_10px_rgba(255,0,255,1)] 
+                     from-[#FF00C8] to-[#990078]
+                     px-28 h-16 rounded-xl border-2 border-[#FF00C8] shadow-[-8px_14px_4px_rgba(255,0,200,0.75)]
                      cursor-pointer
                      max-sm:text-[32px] max-sm:px-10 max-sm:py-2"
         >
