@@ -1,6 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const ResultModal = () => {
+  const navigate = useNavigate();
+  
   return (
     <>
     <div className='fixed inset-0 z-40 bg-[rgba(0,0,0,0.50)] flex justify-center items-center'>
@@ -10,8 +14,8 @@ const ResultModal = () => {
                 <p className='text-[24px] font-bold my-3'>--</p>
                 <p className='text-[24px] font-bold'>Highest combo</p>
                 <p className='text-[24px] font-bold my-3'>--</p>
-                <button className=' text-[24px] text-white font-bold mt-10 w-[50%] h-16 bg-gradient-to-b from-[#FF00C8] to-[#990078] rounded-xl hover:border-2 cursor-pointer hover:bg-black hover:bg-none hover:border-1 hover:border-[#FF00C8]'>Play again</button>
-                <button className=' text-[24px] text-white font-bold  my-3 w-[75%] h-16 bg-gradient-to-b from-[#FF00C8] to-[#990078] rounded-xl hover:border-2 cursor-pointer hover:bg-black hover:bg-none hover:border-1 hover:border-[#FF00C8]'>Back to main menu</button>
+                <button onClick={() => {window.location.reload()}} className=' text-[24px] text-white font-bold mt-10 w-[50%] h-16 bg-gradient-to-b from-[#FF00C8] to-[#990078] rounded-xl hover:border-2 cursor-pointer hover:bg-black hover:bg-none0 hover:border-[#FF00C8]'>Play again</button>
+                <button onClick={() => navigate("/home")} className=' text-[24px] text-white font-bold  my-3 w-[75%] h-16 bg-gradient-to-b from-[#FF00C8] to-[#990078] rounded-xl hover:border-2 cursor-pointer hover:bg-black hover:bg-none hover:border-[#FF00C8]'>Back to main menu</button>
             </div>
         </div>
     </div>
