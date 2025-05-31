@@ -10,7 +10,7 @@ export default function BgAudio() {
   useEffect(() => {
     const handleUserInteraction = () => {
       if (audioRef.current) {
-        audioRef.current.volume = 0.1; // 🔉 Set initial volume to 10%
+        audioRef.current.volume = 0.1;
         audioRef.current.play()
           .then(() => setIsPlaying(true))
           .catch(err => console.warn("Autoplay failed:", err.message));
