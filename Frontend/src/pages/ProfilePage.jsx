@@ -1,4 +1,3 @@
-
 import React from 'react';
 import GifBG from '../images/NeonPinkGrid.gif';
 
@@ -10,7 +9,7 @@ export default function ProfilePage() {
         backgroundImage: `url(${GifBG})`,
       }}
     >
-        <div className='flex flex-col items-center justify-center w-[360px] h-[600px] lg:w-[1000px] lg:h-[800px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10'>
+        <div className='flex flex-col items-center justify-center w-[360px] max-sm:h-[500px] h-[600px] lg:w-[1000px] lg:h-[800px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10 max-sm:mt-6 mt-10 mr-5 ml-5'>
             <div className='flex flex-row justify-between items-between w-full'>
                 <h1 className='flex ml-2 mt-2 text-[20px] lg:text-[30px] font-bold'>
                     Username
@@ -65,10 +64,10 @@ export default function ProfilePage() {
 
         
 
-        <div className='flex gap-20 lg:gap-90'>
+        <div className='flex gap-100 lg:gap-300 mb-10 max-sm:gap-20'>
 
             <button className='
-                text-[16px] lg:text-[24px] font-bold 
+                text-[16px] lg:text-[24px] max-sm:w-30 w-60 font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
@@ -76,7 +75,7 @@ export default function ProfilePage() {
                 cursor-pointer'>
                 Back
             </button><button className='
-                text-[16px] lg:text-[24px] font-bold 
+                text-[16px] max-sm:w-30 w-60 lg:text-[24px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
