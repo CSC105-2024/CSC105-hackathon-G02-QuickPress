@@ -9,15 +9,15 @@ export default function MainPage() {
         backgroundImage: `url(${GifBG})`,
       }}
     >
-      <div className='flex gap-90'>
+      <div className='flex items-center gap-90'>
         <button className='
-        text-[24px] font-bold 
+        text-[30px] font-bold 
         bg-black hover:bg-gradient-to-b 
-        from-[#FC0FC0] to-[#C154C1]
-         px-15 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
+        from-[#FF00C8] to-[#990078]
+         px-28 h-16 rounded-xl border-2 border-[#FF00C8] shadow-[-8px_14px_4px_rgba(255,0,200,0.75)]
          cursor-pointer'>
         Login</button>
-        <h1 className='text-[50px] font-bold'>Quick Press</h1>
+        <h1 className='text-[96px] font-bold'>Quick Press</h1>
       </div>
     </div>
   );
