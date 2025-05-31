@@ -42,7 +42,7 @@ export default function BgAudio() {
       <button
         onClick={toggleAudio}
         aria-label={isPlaying ? "Pause background music" : "Play background music"}
-        className="fixed top-4 right-4 p-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition"
+        className="fixed bottom-4 right-4 p-3 bg-pink-600 text-white rounded-full shadow-lg hover:bg-pink-700 transition"
       >
         {isPlaying ? <Pause size={24} /> : <Play size={24} />}
       </button>
