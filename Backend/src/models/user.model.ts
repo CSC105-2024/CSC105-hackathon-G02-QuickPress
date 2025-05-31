@@ -3,11 +3,13 @@ import { db } from "../index.ts";
 const isDuplicate = async( username: string, email: string ) => {
     const user = await db.user.findFirst({
         where: {
-            username: username,
-            email: email,
-        },
-    });
-    return user;
+            OR: [
+            { username: username },
+            { email: email },
+  ],
+},
+});
+return user;
 }
 
 const createUser = async( username: string, email: string, password: string ) => {
@@ -21,11 +23,10 @@ const createUser = async( username: string, email: string, password: string ) =>
     return user;
 }
 
-const loginUser = async ( email: string, password: string ) => {
+const loginUser = async ( email: string) => {
     const user = await db.user.findUnique({
         where: {
             email: email,
-            password: password
         }
     })
     return user;
