@@ -1,4 +1,3 @@
-
 import React from 'react';
 import GifBG from '../images/NeonPinkGrid.gif';
 
@@ -10,12 +9,12 @@ export default function ProfilePage() {
         backgroundImage: `url(${GifBG})`,
       }}
     >
-        <div className='flex flex-col items-center justify-center w-[360px] h-[600px] lg:w-[800px] lg:h-[600px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10'>
+        <div className='flex flex-col items-center justify-center w-[360px] max-sm:h-[500px] h-[600px] lg:w-[1000px] lg:h-[800px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10 max-sm:mt-6 mt-10 mr-5 ml-5'>
             <div className='flex flex-row justify-between items-between w-full'>
-                <h1 className='flex ml-2 mt-2 text-[20px] lg:text-[30px] font-bold'>
+                <h1 className='flex ml-2 mt-2 text-[24px] lg:text-[30px] font-bold'>
                     Username
                 </h1>
-                <button className='flex ml-2 mt-2 item-center justify-center w-14 h-7 text-[15px] lg:w-20 lg:h-10 lg:text-[20px] font-bold rounded-xl bg-gradient-to-b from-[#FC0FC0] to-[#C154C1] hover:bg-none hover:bg-black hover:border-2 hover:border-[#FC0FC0] cursor-pointer'>
+                <button className='flex mr-2 mt-3 item-center justify-center w-14 h-7 text-[15px] lg:w-20 lg:h-10 lg:text-[20px] font-bold rounded-xl bg-gradient-to-b from-[#FC0FC0] to-[#C154C1] hover:bg-none hover:bg-black hover:border-2 hover:border-[#FC0FC0] cursor-pointer'>
                     Edit
                 </button>
             </div>
@@ -25,10 +24,10 @@ export default function ProfilePage() {
                 <h2 className='text-[20px] lg:text-[30px] font-bold underline text-center mb-3'>History</h2>
                 <table className="table-auto w-full text-center border-separate border-spacing-0">
                     <thead>
-                        <tr className="text-[12px] lg:text-[20px]">
-                            <th className="border-b border-r border-white px-4 py-2">Date</th>
-                            <th className="border-b border-r border-white px-4 py-2">Highest combo</th>
-                            <th className="border-b border-white lg:px-4 py-2">Score</th>
+                        <tr className="text-[24px] max-sm:text-[15px]">
+                            <th className="border-b border-r border-white px-2 py-2">Date</th>
+                            <th className="border-b border-r border-white px-2 py-2">Highest combo</th>
+                            <th className="border-b border-white lg:px-4 pl-2 py-2 ">Score</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,10 +64,10 @@ export default function ProfilePage() {
 
         
 
-        <div className='flex gap-20 lg:gap-90'>
+        <div className='flex gap-100 lg:gap-240 mb-10 max-sm:gap-20'>
 
             <button className='
-                text-[16px] lg:text-[32px] font-bold 
+                text-[16px] lg:text-[32px] max-sm:w-30 w-60 font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
@@ -76,7 +75,7 @@ export default function ProfilePage() {
                 cursor-pointer'>
                 Back
             </button><button className='
-                text-[16px] lg:text-[32px] font-bold 
+                text-[16px] max-sm:w-30 w-60 lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
