@@ -32,7 +32,7 @@ export default function HomePage() {
                         Play
                 </button>  
             </NavLink>
-            <NavLink to={"/"} >
+            <NavLink to={"/topScores"} >
                 <button 
                     className="text-[30px] font-bold 
                                 bg-black hover:bg-gradient-to-b 

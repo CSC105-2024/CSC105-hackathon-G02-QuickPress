@@ -1,9 +1,10 @@
 
 import React from 'react';
 import GifBG from '../images/NeonPinkGrid.gif';
-import BGsong from '../components/BGsong.jsx';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfilePage() {
+    const navigate = useNavigate();
   return (
     <div
       className="w-full min-h-screen bg-cover bg-center text-white flex flex-col gap-8 lg:gap-5 items-center justify-center"
@@ -64,11 +65,9 @@ export default function ProfilePage() {
         </div>
         </div>
 
-        
-
         <div className='flex gap-20 lg:gap-90'>
 
-            <button className='
+            <button onClick={() =>{navigate("/home")}} className='
                 text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
@@ -76,7 +75,7 @@ export default function ProfilePage() {
                 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
                 cursor-pointer'>
                 Back
-            </button><button className='
+            </button><button onClick={() =>{navigate("/")}} className='
                 text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]

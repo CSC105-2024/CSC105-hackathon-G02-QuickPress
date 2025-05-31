@@ -5,6 +5,7 @@ import ArrowKeyListener from '../components/ArrowKeys'
 import Timer from '../components/Timer'
 import RuleModal from '../components/RuleModal';
 import { sendStart } from '../components/RuleModal';
+import BgAudio from '../components/BgAudio';
 
 export let sendRule = [];
 export function setSendRule(rule){
@@ -29,6 +30,7 @@ const GamePlayPage = () => {
 
   return (
     <>
+    <BgAudio />
     {showRuleModal && <RuleModal setShowRuleModal={setShowRuleModal} rule={rule}></RuleModal>}
     <div className="w-full min-h-screen bg-cover bg-center text-white" style={{backgroundImage: `url(${GifBG})`,}}>
         <div className='flex justify-between items-start px-5'>
