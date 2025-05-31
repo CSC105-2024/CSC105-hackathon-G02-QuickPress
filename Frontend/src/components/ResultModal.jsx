@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 const ResultModal = ({score, highestCombo}) => {
     const navigate = useNavigate()
-
   return (
     <>
     <div className='fixed inset-0 z-40 bg-[rgba(0,0,0,0.50)] flex justify-center items-center'>

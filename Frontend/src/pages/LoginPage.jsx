@@ -26,7 +26,11 @@ const LoginPage = () => {
             {hidePassword ? <LuEyeOff onClick={() => setHidePassword(false)} className='-ml-8 text-white text-[24px] cursor-pointer'/> : <LuEye onClick={() => setHidePassword(true)} className='-ml-8 text-white text-[24px] cursor-pointer'/>}
         </div>
         <div className='flex justify-center'>
-            <button type='submit' className='text-[18px] w-[75%] text-black font-bold bg-white py-2 my-10 rounded-lg cursor-pointer'>Login</button>
+            <button type='submit' className='text-[18px] w-[75%] text-black font-bold bg-white my-10 rounded-lg'>
+                <button className='w-full text-[18px] py-2 hover:bg-clip-text hover:text-transparent hover:bg-gradient-to-r hover:from-[#FF00C8] hover:to-[#990078] cursor-pointer'>
+                    login
+                </button>
+            </button>
         </div>
         </form>
         <p className='font-semibold text-[18px] text-white'>Don't have an account <NavLink to={"/register"} className='font-normal font-semibold underline cursor-pointer hover:font-bold'>register</NavLink> here</p>
