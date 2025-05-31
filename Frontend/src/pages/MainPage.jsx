@@ -14,7 +14,9 @@ export default function MainPage() {
         text-[24px] font-bold 
         bg-black hover:bg-gradient-to-b 
         from-[#FC0FC0] to-[#C154C1]
-         px-15 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]'>Login</button>
+         px-15 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
+         cursor-pointer'>
+        Login</button>
         <h1 className='text-[50px] font-bold'>Quick Press</h1>
       </div>
     </div>
