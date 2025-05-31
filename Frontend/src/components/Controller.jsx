@@ -15,8 +15,8 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
   const [score, setScore] = useState(0);
   const [combo, setCombo] = useState(0);
   const [highestCombo, setHighestCombo] = useState(0);
-
   const [button, setButton] = useState("");
+  const [prepare, setPrepare] = useState(true);
 
   // Set the rule of this game
   useEffect(() => {
@@ -227,6 +227,16 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
     handleButton(button);
   }, [button])
 
+  useEffect(() => {
+    if (start) {
+      const timeout = setTimeout(() => {
+        setPrepare(false);
+      }, 6000); // show after 2 seconds
+
+      return () => clearTimeout(timeout);
+    }
+}, [start]);
+
   return (
     <>
     <h1 className='text-[56px] font-bold max-sm:text-[32px]'>Score: {score}</h1>
@@ -255,7 +265,7 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
       </div>
     </div>}
     <div className='absolute top-125 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-sm:top-90'>
-      {(arrowsDisplay.length != 0 && start) && <div className="flex flex-col items-center mt-15">
+      {(arrowsDisplay.length != 0 && start && !prepare) && <div className="flex flex-col items-center mt-15">
         <div className='flex justify-end w-100 max-sm:w-[100%]'>
           <p className='font-semibold'>Combo: {combo}</p>
         </div>
