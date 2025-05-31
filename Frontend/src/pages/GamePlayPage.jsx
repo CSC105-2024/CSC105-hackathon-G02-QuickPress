@@ -1,7 +1,10 @@
 import { React, useEffect, useState} from 'react'
+import GifBG from '../images/NeonPinkGrid.gif'; 
 import Controller from '../components/Controller'
 import ArrowKeyListener from '../components/ArrowKeys'
 import Timer from '../components/Timer'
+import RuleModal from '../components/RuleModal';
+import { sendStart } from '../components/RuleModal';
 
 export let sendRule = [];
 export function setSendRule(rule){
@@ -11,39 +14,30 @@ export function setSendRule(rule){
 const GamePlayPage = () => {
     const [rule, setRule] = useState([]);
     const [start, setStart] = useState(false)
-    const arrowOptions = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"];
+    const [showRuleModal, setShowRuleModal] = useState(true);
+    const [showResult, setShowResult] = useState(false);
+
     ArrowKeyListener()
 
     useEffect(() => {
         setSendRule(rule);
     }, [rule])
 
+    useEffect(() => {
+        setStart(sendStart);
+    }, [sendStart])
+
   return (
     <>
-    <div className='flex justify-between items-center px-5'>
-        <h1 className='text-[56px] font-bold'>Score: </h1>
-        <Timer start={start} setStart={setStart}></Timer>
-    </div>
-    <div className='flex items-center gap-10'>
-        <h1 className='text-xl font-bold underline'>Show</h1>
-        <div className='flex gap-4'>
-            {arrowOptions.map((arrow, index) => (
-                <h1>{arrow}</h1>
-            ))}
+    {showRuleModal && <RuleModal setShowRuleModal={setShowRuleModal} rule={rule}></RuleModal>}
+    <div className="w-full min-h-screen bg-cover bg-center text-white" style={{backgroundImage: `url(${GifBG})`,}}>
+        <div className='flex justify-between items-start px-5'>
+            <div>
+                <Controller showRuleModal={showRuleModal} rule={rule} setRule={setRule} start={start} showResult={showResult}></Controller>
+            </div>
+            <Timer start={start} setStart={setStart} setShowResult={setShowResult}></Timer>
         </div>
     </div>
-    <div className='flex items-center gap-10'>
-        <h1 className='text-xl font-bold underline'>Press</h1>
-        <div className='flex gap-4'>
-            {rule.map((arrow, index) => (
-                <h1>{arrow}</h1>
-            ))}
-        </div>
-    </div>
-    
-    
-    <Controller setRule={setRule} start={start}></Controller>
-    <button onClick={() => setStart(true)} className='cursor-pointer'>CLikc</button>
     </>
   )
 }

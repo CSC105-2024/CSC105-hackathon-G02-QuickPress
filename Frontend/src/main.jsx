@@ -3,12 +3,14 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"; //import these modules
 import "./index.css";
 import App from "./App.jsx";
-import ProfilePage from "./pages/ProfilePage.jsx";
 import './index.css'
 // Import pages
 import RegisterPage from "./pages/RegisterPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import GamePlayPage from "./pages/GamePlayPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
+import BeforePlayPage from "./pages/BeforePlayPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,8 +30,16 @@ const router = createBrowserRouter([
     element: <GamePlayPage/>
   },
   {
-    path: "/profile", // Main page route
-    element: <ProfilePage />, // Render the App component
+    path: "/profile", 
+    element: <ProfilePage />,
+  },
+  {
+    path: "/readyScreen",
+    element: <BeforePlayPage/>
+  },
+  {
+    path: "/home",
+    element: <HomePage/>
   }
 ]);
 
