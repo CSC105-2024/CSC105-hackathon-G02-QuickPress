@@ -1,5 +1,5 @@
 import React from 'react';
-import GifBG from '../images/NeonPinkGrid.gif'; // Adjust the filename if needed
+import GifBG from '../images/NeonPinkGrid.gif'; 
 import QuickPress from '../images/QuickPress.png'; // Adjust the filename if needed
 
 
