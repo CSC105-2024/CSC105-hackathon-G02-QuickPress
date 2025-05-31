@@ -20,7 +20,7 @@ export default function HomePage() {
         <h1 className="max-sm:mb-4 lg:mt-25">
           <img src={QuickPress} alt="Quick Press Logo" className="w-[1200px] h-[280px] max-sm:w-[400px] max-sm:h-[230px]" />
         </h1><div className='flex flex-col gap-15'>
-            <NavLink to={"/gameplay"} >
+            <NavLink to={"/readyScreen"} >
                 <button 
                     className="text-[30px] font-bold 
                                 bg-black hover:bg-gradient-to-b 
@@ -57,7 +57,7 @@ export default function HomePage() {
                 </button>  
             </NavLink>
             <NavLink to={"/"} >
-                <button 
+                <button
                     className="text-[30px] font-bold 
                                 bg-black hover:bg-gradient-to-b 
                                 from-[#FF00C8] to-[#990078]
