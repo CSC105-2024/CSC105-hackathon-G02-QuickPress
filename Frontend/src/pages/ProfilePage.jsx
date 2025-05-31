@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from 'react'
 import GifBG from '../images/NeonPinkGrid.gif';
-import BGsong from '../components/BGsong.jsx';
 import { useNavigate } from "react-router-dom";
 // API
 import * as apiUser from "../api/user.js"
