@@ -57,7 +57,7 @@ const RegisterPage = () =>{
               <button type='submit' className='text-[18px] w-[75%] text-black font-bold bg-white py-2 mb-10 rounded-lg cursor-pointer'>Register</button>
             </div>
           </form>
-           <p className='font-semibold text-[18px] text-white'>Already have an account? <NavLink to={"/login"} className='font-normal font-semibold underline cursor-pointer hover:font-bold'>Login</NavLink></p>
+           <p className='font-semibold text-[18px] text-white'>Already have an account? <NavLink to={"/login"} className='font-semibold underline cursor-pointer hover:font-bold'>Login</NavLink></p>
         </div>
       </div>
 

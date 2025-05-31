@@ -19,9 +19,9 @@ export default function ProfilePage() {
                 </button>
             </div>
 
-        <div className='flex flex-col w-[320px] h-full lg:w-[880px] bg-black mt-3 lg:mt-10 mb-2 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
+        <div className='flex flex-col w-[320px] h-full lg:w-[750px] bg-black mt-3 lg:mt-10 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
             <div>
-                <h2 className='text-[30px] max-sm:text-[24px] font-bold underline text-center mb-3'>History</h2>
+                <h2 className='text-[20px] lg:text-[30px] font-bold underline text-center mb-3'>History</h2>
                 <table className="table-auto w-full text-center border-separate border-spacing-0">
                     <thead>
                         <tr className="text-[24px] max-sm:text-[15px]">
@@ -31,7 +31,7 @@ export default function ProfilePage() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className='text-[12px] lg:text-[18px]'>
+                        <tr className='text-[12px] lg:text-[20px]'>
                             <td className="border-r border-white px-4 py-2">30/05/2005</td>
                             <td className="border-r border-white px-4 py-2">18</td>
                             <td className="px-4 py-2">100</td>
@@ -67,7 +67,7 @@ export default function ProfilePage() {
         <div className='flex gap-100 lg:gap-240 mb-10 max-sm:gap-20'>
 
             <button className='
-                text-[16px] lg:text-[24px] max-sm:w-30 w-60 font-bold 
+                text-[16px] lg:text-[32px] max-sm:w-30 w-60 font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
@@ -75,7 +75,7 @@ export default function ProfilePage() {
                 cursor-pointer'>
                 Back
             </button><button className='
-                text-[16px] max-sm:w-30 w-60 lg:text-[24px] font-bold 
+                text-[16px] max-sm:w-30 w-60 lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
                 from-[#FC0FC0] to-[#C154C1]
                 px-7 lg:px-15 py-3
