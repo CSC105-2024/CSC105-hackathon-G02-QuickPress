@@ -16,7 +16,7 @@ export default function HomePage() {
       style={{ backgroundImage: `url(${GifBG})` }}
     >
       <div className="flex flex-col items-center 
-                      gap-50 lg:flex-row-reverse lg:justify-between lg:items-center lg:w-full lg:max-w-5xl lg:px-10">
+                      gap-30 lg:flex-row-reverse lg:justify-between lg:items-center lg:w-full lg:max-w-5xl lg:px-10">
         <h1 className="max-sm:mb-4 lg:mt-25">
           <img src={QuickPress} alt="Quick Press Logo" className="w-[1200px] h-[280px] max-sm:w-[400px] max-sm:h-[230px]" />
         </h1><div className='flex flex-col gap-15'>
