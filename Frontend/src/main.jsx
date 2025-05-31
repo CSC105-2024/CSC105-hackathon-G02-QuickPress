@@ -11,6 +11,7 @@ import GamePlayPage from "./pages/GamePlayPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import BeforePlayPage from "./pages/BeforePlayPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import TopScorePage from "./pages/TopScorePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/home",
     element: <HomePage/>
+  },
+  {
+    path: "/topScores",
+    element: <TopScorePage/>
   }
 ]);
 
