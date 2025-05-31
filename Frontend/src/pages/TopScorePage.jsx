@@ -42,7 +42,7 @@ const navigate = useNavigate();
         backgroundImage: `url(${GifBG})`,
       }}
     >
-        <div className='flex flex-col h-150 justify-between'>
+        <div className='flex flex-col h-100 lg:h-150 justify-between'>
         <div>
             <table className="table-auto w-full items-center text-center border-separate border-spacing-0">
                 <thead>
@@ -64,7 +64,7 @@ const navigate = useNavigate();
             </table>
         </div>
 
-        <div className='flex w-[1000px] items-start'>
+        <div className='flex w-[370px] lg:w-[1000px] items-start'>
             <button onClick={() => {navigate("/home")}} className='
                 text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
