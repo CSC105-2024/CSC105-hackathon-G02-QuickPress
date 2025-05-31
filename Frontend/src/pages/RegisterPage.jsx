@@ -37,10 +37,10 @@ const RegisterPage = () =>{
           <h1 className='text-[36px] font-bold mb-5 text-white'>Register</h1>
           <form className='flex flex-col items-ce w-full max-w-[475px]'>
             <label className='text-[24px] font-bold text-white mb-1'>Email</label>
-            <input type="text" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required placeholder='Enter your username' className='text-[16px] text-white border-b-5 border-white px-3 py-2 mb-3 w-full'/>
+            <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required placeholder='Enter your username' className='text-[16px] text-white border-b-5 border-white px-3 py-2 mb-3 w-full'/>
 
             <label className='text-[24px] font-bold text-white mb-1'>Username</label>
-            <input type="email" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} required placeholder='Enter your email' className='text-[16px] text-white border-b-5 border-white px-3 py-2 mb-3 w-full'/>
+            <input type="text" value={formData.username} onChange={(e) => setFormData({ ...formData, username: e.target.value })} required placeholder='Enter your email' className='text-[16px] text-white border-b-5 border-white px-3 py-2 mb-3 w-full'/>
 
             <label className='text-[24px] font-bold text-white mb-1'>Password</label>
             <div className='flex items-center mb-3'>
@@ -57,7 +57,7 @@ const RegisterPage = () =>{
               <button type='submit' className='text-[18px] w-[75%] text-black font-bold bg-white py-2 mb-10 rounded-lg cursor-pointer'>Register</button>
             </div>
           </form>
-           <p className='font-semibold text-[18px] text-white'>Already have an account? <NavLink to={"/login"} className='font-normal font-semibold underline cursor-pointer hover:font-bold'>Login</NavLink></p>
+           <p className='font-semibold text-[18px] text-white'>Already have an account? <NavLink to={"/login"} className='font-semibold underline cursor-pointer hover:font-bold'>Login</NavLink></p>
         </div>
       </div>
 

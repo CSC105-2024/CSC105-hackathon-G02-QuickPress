@@ -1,23 +1,29 @@
 import React from 'react';
-import GifBG from '../images/NeonPinkGrid.gif'; // Adjust the filename to match what you renamed it to
+import GifBG from '../images/NeonPinkGrid.gif'; // Adjust the filename if needed
+import QuickPress from '../images/QuickPress.png'; // Adjust the filename if needed
+
 
 export default function MainPage() {
   return (
     <div
       className="w-full min-h-screen bg-cover bg-center text-white flex items-center justify-center"
-      style={{
-        backgroundImage: `url(${GifBG})`,
-      }}
+      style={{ backgroundImage: `url(${GifBG})` }}
     >
-      <div className='flex items-center gap-90'>
-        <button className='
-        text-[30px] font-bold 
-        bg-black hover:bg-gradient-to-b 
-        from-[#FF00C8] to-[#990078]
-         px-28 h-16 rounded-xl border-2 border-[#FF00C8] shadow-[-8px_14px_4px_rgba(255,0,200,0.75)]
-         cursor-pointer'>
-        Login</button>
-        <h1 className='text-[96px] font-bold'>Quick Press</h1>
+      <div className="flex flex-col items-center 
+                      gap-50 lg:flex-row-reverse lg:justify-between lg:items-center lg:w-full lg:max-w-5xl lg:px-10">
+        <h1 className="max-sm:mb-4 lg:mt-25">
+          <img src={QuickPress} alt="Quick Press Logo" className="w-[1200px] h-[280px] max-sm:w-[400px] max-sm:h-[230px]" />
+        </h1>
+        <button
+          className="text-[30px] font-bold 
+                     bg-black hover:bg-gradient-to-b 
+                     from-[#FF00C8] to-[#990078]
+                     px-28 h-16 rounded-xl border-2 border-[#FF00C8] shadow-[-8px_14px_4px_rgba(255,0,200,0.75)]
+                     cursor-pointer
+                     max-sm:text-[32px] max-sm:px-10 max-sm:py-2"
+        >
+          Login
+        </button>
       </div>
     </div>
   );
