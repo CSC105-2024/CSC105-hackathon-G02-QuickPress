@@ -80,7 +80,7 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
   useEffect(() => {
 
     const handleKeyDown = async (e) => {
-      if (e.key === ' ' && currentIndex === arrows.length) {
+      if (e.key === ' ' && currentIndex === arrows.length && start) {
         // Create array for collect random arrows sequence
         const newArrows = [];
         // Create array for collect random arrows sequence to show on display

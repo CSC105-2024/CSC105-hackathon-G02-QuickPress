@@ -13,7 +13,7 @@ const createUser = async (c: Context) => {
 	try {
 		const body = await c.req.json<createUserBody>();
 		const hashedPassword = await bcrypt.hash(body.password, 10);
-		if (!body.username || !body.email || !body.password)
+		if (!body.username || !body.email || !body.password){
 			return c.json(
 				{
 					success: false,
@@ -22,6 +22,7 @@ const createUser = async (c: Context) => {
 				},
 				400
 			);
+		}
 		if (await userModel.isDuplicate(body.username, body.email)) {
 			return c.json({
 				success: false,
