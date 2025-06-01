@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 // API
 import * as apiGame from '../api/game'
@@ -13,13 +13,17 @@ const ResultModal = ({score, highestCombo}) => {
       const [comboGame, setComboGame] = useState();
     
       const userAccount = parseInt(localStorage.getItem("userAccount"));
-    
+          
+      const hasRun = useRef(false);
+
       // Backend => API getInfoUser
       const getInfoUser = async (id) => {
         const data = await apiUser.getInfoUser(id);
         if (data.data.success) {
           setScorePlayer(data.data.data.highestScore);
           setComboPlayer(data.data.data.highestCombo);
+          console.log(true);
+          
         }
       }
 
@@ -50,15 +54,18 @@ const ResultModal = ({score, highestCombo}) => {
       const data = await apiGame.createGame(day, month, year, score, highestCombo, userId);
       if (data.data.success) {
         setScoreGame(data.data.data.score);
-        setComboGame(data.data.data.combo);
+        setComboGame(data.data.data.combo); 
       }
     }
+useEffect(() => {
+  if (hasRun.current) return;
+  hasRun.current = true;
 
-    useEffect(() => {
-      const date = new Date();
-      createGame(date.getDate(), date.getMonth() + 1, date.getFullYear(), score, highestCombo, userAccount)
-      getInfoUser(userAccount);
-    },[])
+  const date = new Date();
+  createGame(date.getDate(), date.getMonth() + 1, date.getFullYear(), score, highestCombo, userAccount);
+  getInfoUser(userAccount);
+  console.log(0);
+}, []);
 
     const navigate = useNavigate()
   return (

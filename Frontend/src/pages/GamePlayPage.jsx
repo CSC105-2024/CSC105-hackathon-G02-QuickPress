@@ -28,6 +28,13 @@ const GamePlayPage = () => {
         setStart(sendStart);
     }, [sendStart])
 
+    useEffect(() => {
+    if (!sessionStorage.getItem("reloaded")) {
+      sessionStorage.setItem("reloaded", "true");
+      window.location.reload();
+    }
+  }, []);
+
   return (
     <>
     <BgAudio></BgAudio>

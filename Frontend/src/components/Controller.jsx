@@ -48,7 +48,7 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
     const newArrowsDisplay = [];
 
     // Random the arrows sequence
-    for (let i = 0; i < (Math.floor(Math.random() * (10 - 4) ) + 4); i++) {
+    for (let i = 0; i < (Math.floor(Math.random() * (6  - 4) ) + 4); i++) {
         const random = Math.random();
         
         let select;
@@ -87,7 +87,7 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
         const newArrowsDisplay = [];
 
         // Random the arrows sequence
-        for (let i = 0; i < (Math.floor(Math.random() * (10 - 4) ) + 4); i++) {
+        for (let i = 0; i < (Math.floor(Math.random() * (6 - 4) ) + 4); i++) {
             const random = Math.random();
             let select;
             if (random <= 0.25) {
@@ -114,7 +114,7 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
         const newCombo = combo + 1;
         setCombo(newCombo);
 
-        const newScore = score + 500;
+        const newScore = (score + 500) + (combo + 1) * 100;
         setScore(newScore);
 
         if (newCombo > highestCombo) {
@@ -163,7 +163,7 @@ export default function ArrowSequenceGame({showRuleModal, rule, setRule, start, 
         const newArrowsDisplay = [];
 
         // Random the arrows sequence
-        for (let i = 0; i < (Math.floor(Math.random() * (10 - 4) ) + 4); i++) {
+        for (let i = 0; i < (Math.floor(Math.random() * (6 - 4) ) + 4); i++) {
             const random = Math.random();
             let select;
             if (random <= 0.25) {
