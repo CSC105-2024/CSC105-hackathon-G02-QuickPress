@@ -79,12 +79,12 @@ export default function ProfilePage() {
       }}
     >
         <div className='flex flex-col items-center justify-center w-[360px] h-[600px] lg:w-[800px] lg:h-[600px] bg-black border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-10'>
-            <div className='flex lg:gap-130 gap-30  '>
+            <div className='flex mt-5 lg:gap-130 gap-30  '>
                 {!edit && <h1 className='flex text-[20px] lg:text-[30px] font-bold'>
                     {username}
                 </h1>}
                 {edit && <input type="text" value={editUsername} onChange={(e) => setEditUsername(e.target.value)} className='border-1 border-white rounded-lg px-2 text-[20px]'/>}
-                {!edit && <button onClick={() => setEdit(true)} className='flex item-center justify-center w-14 h-7 text-[15px] lg:w-20 lg:h-10 lg:text-[20px] font-bold rounded-xl bg-gradient-to-b from-[#FC0FC0] to-[#C154C1] hover:bg-none hover:bg-black hover:border-2 hover:border-[#FC0FC0] cursor-pointer'>
+                {!edit && <button onClick={() => setEdit(true)} className='flex item-center justify-center w-14 h-7 mt-2 text-[15px] lg:w-20 lg:h-10 lg:text-[20px] font-bold rounded-xl bg-gradient-to-b from-[#FC0FC0] to-[#C154C1] hover:bg-none hover:bg-black hover:border-2 hover:border-[#FC0FC0] cursor-pointer'>
                     Edit
                 </button>}
                 {edit && <div className='flex -ml-60 gap-5'>
@@ -97,7 +97,7 @@ export default function ProfilePage() {
                 </div>}
             </div>
 
-        <div className='flex flex-col mb-5 w-[320px] h-full lg:w-[750px] bg-black mt-3 lg:mt-10 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
+        <div className='flex flex-col mb-5 w-[320px] h-full lg:w-[750px] bg-black mt-3 lg:mt-5 border-2 border-[#FC0FC0] rounded-xl p-2 lg:p-6 justify-between'>
             <div>
                 <h2 className='text-[20px] lg:text-[30px] font-bold underline text-center mb-3'>History</h2>
                 <table className="table-auto w-full text-center border-separate border-spacing-0">
@@ -157,7 +157,7 @@ export default function ProfilePage() {
             </div>
         </div>
 
-        <div className='flex gap-20 lg:gap-90'>
+        <div className='flex lg:w-[900px]'>
             <button onClick={() =>{navigate("/home")}} className='
                 text-[16px] lg:text-[32px] font-bold 
                 bg-black hover:bg-gradient-to-b 
@@ -166,14 +166,6 @@ export default function ProfilePage() {
                 rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
                 cursor-pointer'>
                 Back
-            </button><button onClick={() =>{navigate("/")}} className='
-                text-[16px] lg:text-[32px] font-bold 
-                bg-black hover:bg-gradient-to-b 
-                from-[#FC0FC0] to-[#C154C1]
-                px-7 lg:px-15 py-3
-                rounded-xl border-2 border-[#FC0FC0] shadow-[-6px_10px_rgba(255,0,255,1)]
-                cursor-pointer'>
-                Log Out
             </button>
 
         </div>
