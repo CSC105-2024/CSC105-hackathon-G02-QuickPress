@@ -30,7 +30,7 @@ const GamePlayPage = () => {
 
   return (
     <>
-    <BgAudio />
+    <BgAudio></BgAudio>
     {showRuleModal && <RuleModal setShowRuleModal={setShowRuleModal} rule={rule}></RuleModal>}
     <div className="w-full min-h-screen bg-cover bg-center text-white" style={{backgroundImage: `url(${GifBG})`,}}>
         <div className='flex justify-between items-start px-5'>
