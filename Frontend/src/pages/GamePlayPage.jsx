@@ -6,6 +6,7 @@ import Timer from '../components/Timer'
 import RuleModal from '../components/RuleModal';
 import { sendStart } from '../components/RuleModal';
 import BgAudio from '../components/BgAudio';
+import { use } from 'react';
 
 export let sendRule = [];
 export function setSendRule(rule){
@@ -27,6 +28,10 @@ const GamePlayPage = () => {
     useEffect(() => {
         setStart(sendStart);
     }, [sendStart])
+
+    // useEffect(() => {
+    //     window.location.reload();
+    // },[])
 
   return (
     <>

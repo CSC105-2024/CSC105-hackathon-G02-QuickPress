@@ -22,15 +22,22 @@ const LoginPage = () => {
 
             // Navigate to home page
             navigate("/home");
-        } else {
-            // set error in localStorage when data is not correct
-            localStorage.setItem("error", "Email or password is wrong");
-             window.location.reload();
         }
         } catch (e) {
             console.log(e);
+            // set error in localStorage when data is not correct
+            localStorage.setItem("error", "Email or password is wrong");
+            window.location.reload();
         } 
     }
+
+    useEffect(() => {
+        const savedError = localStorage.getItem("error");
+        if (savedError) {
+            setErrorText(savedError);
+            localStorage.removeItem("error");
+        }
+    }, []);
 
     const [formData, setFormData] = useState({
         email: '',
@@ -52,27 +59,19 @@ const LoginPage = () => {
         e.preventDefault();
         const result = userSchema.safeParse(formData);
         if (result.success) {
-        console.log("Validation successful:", result.data);
-        // API
-        login(formData.email, formData.password);
+            console.log("Validation successful:", result.data);
+            // API
+            login(formData.email, formData.password);
         } else {
-        console.log("Validation errors:", result.error.errors);
-        setErrorText("")
-        const errorMap = {};
-        result.error.errors.forEach((err) => {
-            errorMap[err.path[0]] = err.message;
-        });
-        setErrors(errorMap);
+            console.log("Validation errors:", result.error.errors);
+            setErrorText("")
+            const errorMap = {};
+            result.error.errors.forEach((err) => {
+                errorMap[err.path[0]] = err.message;
+            });
+            setErrors(errorMap);
         }
     };
-
-    useEffect(() => {
-        const savedError = localStorage.getItem("error");
-        if (savedError) {
-            setErrorText(savedError);
-            localStorage.removeItem("error");
-        }
-    }, []);
 
   return (
     <>
@@ -83,7 +82,7 @@ const LoginPage = () => {
             <label className='text-[24px] font-bold text-white mb-1'>Email</label>
             {errorText && <span className='text-red-600'>{errorText}</span>}
             {errors.email && <span className='text-red-600'>{errors.email}</span>}
-            <input type="text" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required placeholder='Enter your username' className='text-[16px] text-white border-b-5 border-white px-3 py-2 mb-3 w-full'/>
+            <input type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} required placeholder='Enter your username' className='text-[16px] text-white border-b-5 border-white px-3 py-2 mb-3 w-full'/>
             <label className='text-[24px] font-bold text-white mb-1'>Password</label>
             {errors.password && <span className='text-red-600'>{errors.password}</span>}
             <div className='flex items-center mb-3'>

@@ -20,7 +20,7 @@ const BeforePlayPage = () => {
       setCombo(data.data.data.highestCombo);
     }
   }
-
+  
   useEffect(() => {
     getInfoUser(userAccount);
   }, [])
